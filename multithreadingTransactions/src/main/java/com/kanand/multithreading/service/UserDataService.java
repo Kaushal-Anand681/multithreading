@@ -74,7 +74,6 @@ public class UserDataService {
 					customerList.add(customer);
 				}
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		} catch (FileNotFoundException e) {
