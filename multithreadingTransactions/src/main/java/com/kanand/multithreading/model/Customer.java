@@ -2,16 +2,16 @@ package com.kanand.multithreading.model;
 
 public class Customer {
 	
-	private int id;
+	private String id;
 	private String firstName;
 	private String lastName;
 	private String email;
 	private String gender;
-	private int orderQuantity;
-	public int getId() {
+	private String orderQuantity;
+	public String getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 	public String getFirstName() {
@@ -38,17 +38,11 @@ public class Customer {
 	public void setGender(String gender) {
 		this.gender = gender;
 	}
-	public int getOrderQuantity() {
+	public String getOrderQuantity() {
 		return orderQuantity;
 	}
-	public void setOrderQuantity(int orderQuantity) {
+	public void setOrderQuantity(String orderQuantity) {
 		this.orderQuantity = orderQuantity;
 	}
-	@Override
-	public String toString() {
-		return "Customer [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email
-				+ ", gender=" + gender + ", orderQuantity=" + orderQuantity + "]";
-	}
-	
 	
 }

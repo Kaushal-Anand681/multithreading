@@ -59,18 +59,19 @@ public class UserDataService {
 
 	public List<Customer> readDataFromCSV() {
 		List<Customer> customerList= new ArrayList<>();
+		String line = "";
 		try {
 			BufferedReader bufferedReader = new BufferedReader(new FileReader("src/main/resources/MOCK_DATA.csv"));
 			try {
-				while(bufferedReader != null && bufferedReader.readLine() != null) {
-					String [] data = bufferedReader.readLine().split(",");
+				while((line = bufferedReader.readLine()) != null) {
+					String [] data = line.split(",");
 					Customer customer = new Customer();
-					customer.setId(Integer.parseInt(data[0]));
+					customer.setId(data[0]);
 					customer.setFirstName(data[1]);
 					customer.setLastName(data[2]);
 					customer.setEmail(data[3]);
 					customer.setGender(data[4]);
-					customer.setOrderQuantity(Integer.parseInt(data[5]));
+					customer.setOrderQuantity(data[5]);
 					customerList.add(customer);
 				}
 			} catch (IOException e) {
