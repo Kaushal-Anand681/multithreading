@@ -9,9 +9,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.kanand.multithreading.dto.User;
+import com.kanand.multithreading.dto.Users;
 import com.kanand.multithreading.model.Customer;
 import com.kanand.multithreading.service.CustomerDataService;
 import com.kanand.multithreading.service.ReadXMLFileService;
+import com.kanand.multithreading.service.ReadYAMLFileService;
 import com.kanand.multithreading.service.UserDataService;
 
 @RestController
@@ -26,6 +28,9 @@ public class UserDataController {
 	
 	@Autowired
 	private ReadXMLFileService xmlDataService;
+	
+	@Autowired
+	private ReadYAMLFileService ymlDataService;
 
 	/*
 	 * @PostMapping(value = "/saveUserData", consumes = "application/json", produces
@@ -58,6 +63,12 @@ public class UserDataController {
 	@ResponseBody
 	public List<User> readDataFromXML() {
 		return xmlDataService.readXMLFile();
+	}
+	
+	@GetMapping(value = "/readDataFromYaml", produces = "application/json")
+	@ResponseBody
+	public Users readDataFromYaml() {
+		return ymlDataService.readYAMLFile();
 	}
 
 }
