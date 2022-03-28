@@ -17,5 +17,10 @@ public class CustomerDaoImpl implements ICustomerDao {
 		return customerRepository.save(customer) != null;
 	}
 
+	@Override
+	public void delete(Integer id) {
+		customerRepository.deleteById(id);
+	}
+
 	
 }

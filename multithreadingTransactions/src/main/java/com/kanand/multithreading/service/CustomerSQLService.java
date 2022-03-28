@@ -19,6 +19,10 @@ public class CustomerSQLService {
 		}
 		return "Something went wrong. Please try again.";
 	}
+
+	public void deleteCustomerData(Integer id) {
+		customerRepository.delete(id);
+	}
 	
 	
 
