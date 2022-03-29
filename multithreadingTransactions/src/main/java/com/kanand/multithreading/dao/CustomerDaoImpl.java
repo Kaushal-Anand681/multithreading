@@ -18,8 +18,12 @@ public class CustomerDaoImpl implements ICustomerDao {
 	}
 
 	@Override
-	public void delete(Integer id) {
-		customerRepository.deleteById(id);
+	public String delete(Integer id) {
+		if(customerRepository.findById(id) != null) {
+			customerRepository.deleteById(id);
+			return "data deleted";
+		}
+		return "id not found";
 	}
 
 	

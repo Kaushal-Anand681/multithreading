@@ -20,8 +20,8 @@ public class CustomerSQLService {
 		return "Something went wrong. Please try again.";
 	}
 
-	public void deleteCustomerData(Integer id) {
-		customerRepository.delete(id);
+	public String deleteCustomerData(Integer id) {
+		return customerRepository.delete(id);
 	}
 	
 	

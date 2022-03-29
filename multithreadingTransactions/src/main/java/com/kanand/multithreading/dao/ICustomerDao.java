@@ -6,6 +6,6 @@ public interface ICustomerDao {
 	
 	public boolean save(CustomerDTO customer);
 	
-	public void delete(Integer id);
+	public String delete(Integer id);
 
 }

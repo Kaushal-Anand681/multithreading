@@ -27,8 +27,8 @@ public class CustomerController {
 	
 	@DeleteMapping(value = "/deleteCustomerData/{id}")
 	@ResponseBody
-	public void deleteCustomerData(@PathVariable Integer id) {
-		customerSQLService.deleteCustomerData(id);
+	public String deleteCustomerData(@PathVariable Integer id) {
+		return customerSQLService.deleteCustomerData(id);
 	}
 
 }
