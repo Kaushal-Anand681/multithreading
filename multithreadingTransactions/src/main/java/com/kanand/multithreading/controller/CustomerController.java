@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.kanand.multithreading.entity.CustomerDTO;
 import com.kanand.multithreading.service.CustomerSQLService;
 
@@ -21,14 +23,18 @@ public class CustomerController {
 
 	@PostMapping(value = "/saveCustomerData", produces = "application/json", consumes = "application/json")
 	@ResponseBody
-	public String saveCustomerData(@RequestBody CustomerDTO customer) {
-		return customerSQLService.saveCustomerData(customer);
+	public Object saveCustomerData(@RequestBody CustomerDTO customer) {
+		String result = customerSQLService.saveCustomerData(customer);
+		Gson gson= new GsonBuilder().create();
+		return gson.toJson(result);
 	}
 	
 	@DeleteMapping(value = "/deleteCustomerData/{id}")
 	@ResponseBody
-	public String deleteCustomerData(@PathVariable Integer id) {
-		return customerSQLService.deleteCustomerData(id);
+	public Object deleteCustomerData(@PathVariable Integer id) {
+		String result =  customerSQLService.deleteCustomerData(id);
+		Gson gson= new GsonBuilder().create();
+		return gson.toJson(result);
 	}
 
 }
