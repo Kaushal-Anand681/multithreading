@@ -1,10 +1,13 @@
 package com.kanand.multithreading.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.kanand.multithreading.dao.CustomerDaoImpl;
 import com.kanand.multithreading.entity.CustomerDTO;
+import com.kanand.multithreading.model.Customer;
 
 @Service
 public class CustomerSQLService {
@@ -22,6 +25,14 @@ public class CustomerSQLService {
 
 	public String deleteCustomerData(Integer id) {
 		return customerRepository.delete(id);
+	}
+	
+	public Customer findById(Integer id) {
+		return customerRepository.findById(id);
+	}
+	
+	public List<Customer> findByName(String name) {
+		return customerRepository.findByName(name);
 	}
 	
 	
